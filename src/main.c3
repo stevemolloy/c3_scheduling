@@ -49,7 +49,9 @@ fn void Project.add_task(Project* self, String name, float duration) {
     task_id += 1;
 
     task.predecessors.push(self.get_ref(self.len()-1));
-    self.get_ref(self.len() - 1).successors.push(&task);
+
+    Task* last = self.get_ref(self.len() - 1);
+    last.successors.push(&task);
 
     self.push(task);
 }
