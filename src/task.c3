@@ -40,8 +40,11 @@ fn void Task.print(Task* self) {
 fn Time Task.add_start(Task* self, Time start) {
     start.fix_to_working_hours();
 
-    self.start.day = start.day;
-    self.start.hour = start.hour;
+    if (greater(start, self.start)) {
+        self.start = start;
+    } else {
+        start = self.start;
+    }
 
     start.hour += self.duration;
     if (self.duration_type != ELAPSED_TIME) start.fix_to_working_hours();

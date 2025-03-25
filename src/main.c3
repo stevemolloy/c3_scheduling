@@ -22,7 +22,7 @@ fn int main(String[] args) {
     project.add_successor_task("testing 13", 1.0);
     project.add_successor_task("testing 14", 1.0);
     project.add_successor_task("testing 15", 1.0);
-    if (catch project.add_task_with_predecessors("testing 16", 1.0, {0, 2, 4, 6})) return 1;
+    if (catch project.add_task_with_predecessors("testing 16", 1.0, {0, 2, 4, 8})) return 1;
 
     Time start;
     project.schedule(start);

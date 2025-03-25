@@ -22,3 +22,8 @@ fn void Time.fix_to_working_hours(Time* self) {
     }
 }
 
+fn int Time.compare_to(Time self, Time other) {
+    if (self.day == other.day) return (int)((self.hour - other.hour) > 0);
+    return self.day - other.day;
+}
+
