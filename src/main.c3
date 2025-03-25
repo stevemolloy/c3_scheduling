@@ -57,7 +57,7 @@ fn void Project.start(Project* self) {
     self.push(new_task("Start", 0.0));
 }
 
-fn void Project.add_task(Project* self, String name, float duration) {
+fn void Project.add_successor_task(Project* self, String name, float duration) {
     self.push(new_task(name, duration));
     
     usz num_eles = self.len();
@@ -102,9 +102,9 @@ fn int main(String[] args) {
 	Project project;
 
     project.start();
-    project.add_task("testing 1", 6.0);
-    project.add_task("testing 2", 12.0);
-    project.add_task("testing 3", 12.0);
+    project.add_successor_task("testing 1", 6.0);
+    project.add_successor_task("testing 2", 12.0);
+    project.add_successor_task("testing 3", 12.0);
 
     Time start;
     project.schedule(start);
