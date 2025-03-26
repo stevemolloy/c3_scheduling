@@ -28,11 +28,9 @@ fn void? Project.add_task_with_predecessors(Project* self, String name, float du
 }
 
 fn void Project.add_successor_task(Project* self, String name, float duration) {
-    self.push(new_task(name, duration));
-    
-    usz num_eles = self.len();
-    self.get_ref(num_eles - 2).successors.push(num_eles - 1);
-    self.get_ref(num_eles - 1).predecessors.push(num_eles - 2);
+    if (catch self.add_task_with_predecessors(name, duration, {self.len() - 1})) {
+        io::printn("Cannot add a successor task to an empty project");
+    }
 }
 
 fn void Project.schedule(Project *self, Time start_time) {
