@@ -58,11 +58,7 @@ fn int main(String[] args) {
             project.push(new_task(name, duration));
             if (predecessors.len() > 0) {
                 foreach (predecessor : predecessors) {
-                    io::printfn("Adding predecessor %d to curr_ind %d", predecessor, curr_ind);
-                    project.add_predecessor_link_to_task(curr_ind, predecessor)!!;
-                    // if (catch project.add_predecessor_link_to_task(curr_ind, predecessor)) {
-                    //     return 1;
-                    // }
+                    if (catch project.add_predecessor_link_to_task(curr_ind, predecessor)) return 1;
                 }
             }
         }
