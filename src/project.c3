@@ -39,6 +39,9 @@ fn void Project.schedule(Project *self, Time start_time) {
 }
 
 fn void Project.print(Project *self) {
-    foreach (t: self) t.print();
+    foreach (i, t: self) {
+        io::printf("%d :: ", i);
+        t.print();
+    }
 }
 
