@@ -11,7 +11,7 @@ struct Time {
 }
 
 fn void Time.print(Time self) {
-    io::printf("Day: %d, Hour: %f", self.day, self.hour);
+    io::printf("Day: %03d, Hour: %02.2f", self.day, self.hour);
 }
 
 fn void Time.fix_to_working_hours(Time* self) {

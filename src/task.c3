@@ -20,10 +20,10 @@ fn Task new_task(String name, float duration) {
 }
 
 fn void Task.print(Task* self) {
-    io::printf("\"%s\" -- %0.2f hours ", self.name, self.duration);
-    if (self.duration_type == ELAPSED_TIME) io::printf(" (elapsed) ");
     self.start.print();
     io::printf(" ");
+    io::printf("%0.2f hours -- \"%s\" ", self.duration, self.name);
+    if (self.duration_type == ELAPSED_TIME) io::printf(" (elapsed) ");
     io::printf("Successors: ");
     foreach (i, succ : self.successors) {
         if (i!=0) io::printf(", ");
