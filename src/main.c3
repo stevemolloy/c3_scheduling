@@ -58,14 +58,14 @@ fn int main(String[] args) {
             project.push(new_task(name, duration));
             if (predecessors.len() > 0) {
                 foreach (predecessor : predecessors) {
-                    if (catch project.add_predecessor_link_to_task(curr_ind, predecessor)) return 1;
+                    if (catch add_predecessor_link_to_task(&project, curr_ind, predecessor)) return 1;
                 }
             }
         }
     }
 
     Time start;
-    project.schedule(start);
+    schedule_project(&project, start);
     project.print();
 
 	return 0;

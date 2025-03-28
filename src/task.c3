@@ -9,6 +9,7 @@ struct Task {
     String name;
     Time start;
     HourNum duration;
+    Time end;
     DurationType duration_type;
     List{usz} successors;
     List{usz} predecessors;
@@ -21,8 +22,10 @@ fn Task new_task(String name, float duration) {
 
 fn void Task.print(Task* self) {
     self.start.print();
-    io::printf(" -- ");
-    io::printf("%0.2f hours -- \"%s\" ", self.duration, self.name);
+    io::printf(" --> ");
+    self.end.print();
+    io::printf(" ( ");
+    io::printf("%0.2f hours ) \"%s\" ", self.duration, self.name);
     if (self.duration_type == ELAPSED_TIME) io::printf(" (elapsed) ");
     io::printf("Successors: ");
     foreach (i, succ : self.successors) {
@@ -37,26 +40,28 @@ fn void Task.print(Task* self) {
     io::printf("\n");
 }
 
-fn Time Task.add_start(Task* self, Time start) {
+fn Time add_start(Task* task, Time start) {
     start.fix_to_working_hours();
 
-    if (greater(start, self.start)) {
-        self.start = start;
+    if (greater(start, task.start)) {
+        task.start = start;
     } else {
-        start = self.start;
+        start = task.start;
     }
 
-    start.hour += self.duration;
-    if (self.duration_type != ELAPSED_TIME) start.fix_to_working_hours();
+    start.hour += task.duration;
+    if (task.duration_type != ELAPSED_TIME) start.fix_to_working_hours();
+
+    task.end = start;
 
     return start;
 }
 
-fn Time Task.schedule(Task* self, Project project, Time start_time) {
-    start_time = self.add_start(start_time);
+fn Time schedule_task(Task* task, Project project, Time start_time) {
+    start_time = add_start(task, start_time);
 
-    foreach (ind : self.successors) {
-        project.get_ref(ind).schedule(project, start_time);
+    foreach (ind : task.successors) {
+        schedule_task(project.get_ref(ind), project, start_time);
     }
 
     return start_time;
