@@ -41,7 +41,7 @@ fn void Task.print(Task* self) {
 }
 
 fn Time add_start(Task* task, Time start) {
-    start.fix_to_working_hours();
+    start.fast_forward_to_working_hours();
 
     if (greater(start, task.start)) {
         task.start = start;
