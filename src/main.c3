@@ -35,9 +35,9 @@ fn int main(String[] args) {
                 if (catch test) return 1;
                 duration = test;
             } else if (token_ind == 2 && token.len > 0) {
-                String[] preds = token.split(mem, ",");
-                defer free (preds);
-                foreach (pred_str : preds) {
+                String[] pred_strings = token.split(mem, ",");
+                defer free (pred_strings);
+                foreach (pred_str : pred_strings) {
                     pred_str = pred_str.trim();
                     if (pred_str.len == 0) continue;
                     uint? task_ind = pred_str.to_uint();
