@@ -45,8 +45,7 @@ fn int main(String[] args) {
                         io::printfn("Could not convert %s to uint", pred_str);
                         return 1;
                     }
-                    task_ind -= 1; // Stupid one-based indexing
-                    predecessors.push(task_ind);
+                    predecessors.push((usz)task_ind - 1); // Stupid one-based indexing
                 }
             }
         }
