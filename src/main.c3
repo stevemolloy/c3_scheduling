@@ -5,8 +5,6 @@ import std::io::file;
 import std::collections::list;
 
 fn int main(String[] args) {
-	Project project;
-
     String filename = "./resources/input_data.csv";
     // String filename = "./resources/short_input_data.csv";
     String? contents = (String)file::load(mem, filename);
@@ -19,6 +17,7 @@ fn int main(String[] args) {
     String[] lines = contents.split(mem, "\n");
     defer free(lines);
 
+	Project project;
     foreach (i, line : lines) {
         line = line.trim();
         String[] tokens = line.split(mem, ";");
