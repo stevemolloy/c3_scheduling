@@ -1,13 +1,13 @@
 Start work;0;
 Achro 03 installation;0;
-   Achro 03: Connect pumping stations and start baking;2;1
-   Achro 03: Bake 2 pumping stations;8;3
-   Achro 03 M1;0;
-      Achro 03 M1: Break water connections for magnets;1;1
-      Achro 03 M1: Break water connections for vacuum chambers and flush with air;1;1
-      Achro 03 M1: Break electrical connections for magnets;1;1
-      Achro 03 M1: Break electrical connections for TCOs, BPM cables, fast corr magnets;1;1
-      Achro 03 M1: Remove old top magnet halves;1;6,8,7,9,3
-      Achro 03 M1: Install local supports for vac chambers;0.5;10
-      Achro 03 M1: Detach VCs from supports on lower block and support with local (temp) supports;0.5;11
-      Achro 03 M1: Remove old bottom magnet blocks;1;12
+Achro 03: Connect pumping stations and start baking;2;1
+Achro 03: Bake 2 pumping stations;8;3
+Achro 03 M1;0;
+Achro 03 M1: Break water connections for magnets;1;1
+Achro 03 M1: Break water connections for vacuum chambers and flush with air;1;1
+Achro 03 M1: Break electrical connections for magnets;1;1
+Achro 03 M1: Break electrical connections for TCOs, BPM cables, fast corr magnets;1;1
+Achro 03 M1: Remove old top magnet halves;1;6,8,7,9,3
+Achro 03 M1: Install local supports for vac chambers;0.5;10
+Achro 03 M1: Detach VCs from supports on lower block and support with local (temp) supports;0.5;11
+Achro 03 M1: Remove old bottom magnet blocks;1;12
